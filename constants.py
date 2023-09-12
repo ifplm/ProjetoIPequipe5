@@ -13,7 +13,6 @@ MOB_LAYER = 3
 BLOCK_LAYER = 2
 BACK_GROUND_LAYER = 1
 
-
 FPS = 30
 
 NOME_JOGO = "CC Frog"
@@ -25,7 +24,7 @@ TITLE_SZ = 64
 PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
 VERMELHO = (255, 0, 0)
-VERDE = (0, 255, 0)
+VERDE = (0, 255, 100)
 AZUL = (0, 0, 255)
 BLUE = (0, 0, 255)
 

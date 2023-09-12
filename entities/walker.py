@@ -8,7 +8,7 @@ from constants import *
 
 class Walker(pygame.sprite.Sprite):
 
-    def __init__(self, spriteGroup, x, y, image, w = MOB_WIDTH, h=MOB_HEIGTH, velocity=MOB_VELOCITY):
+    def __init__(self, spriteGroup, colliders, x, y, image, w = MOB_WIDTH, h=MOB_HEIGTH, velocity=MOB_VELOCITY):
         
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
@@ -20,6 +20,7 @@ class Walker(pygame.sprite.Sprite):
         self._layer = MOB_LAYER
         
         self.groups = spriteGroup
+        self.colliders = colliders
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.image = image
@@ -29,23 +30,34 @@ class Walker(pygame.sprite.Sprite):
         self.rect.y = self.y
 
 
+        self.delta_x = 0
+        self.delta_y = 0
+
+        self.facing = 1
+        # direção que o sapo está olhando | 1 - Right | 2 - Left |
+
+
     def update(self):
-        self.rect.y = self.y
-        self.rect.x = self.x
+
+        self.rect.x += self.delta_x
+        self.collider('x')
+        self.rect.y += self.delta_y
+        self.collider('y')
+
+        self.delta_x = 0
+        self.delta_y = 0
 
 
 
     def moveUp(self):
-        self.y -= self.VELOCITY
-
+        self.delta_y -= self.VELOCITY
     def moveDown(self):
-        self.y += self.VELOCITY
-
+        self.delta_y += self.VELOCITY
     def moveLeft(self):
-        self.x -= self.VELOCITY
-
+        self.delta_x -= self.VELOCITY
     def moveRight(self):
-        self.x += self.VELOCITY
+        self.delta_x += self.VELOCITY
+
 
 
     def checkMove(self):
@@ -57,3 +69,22 @@ class Walker(pygame.sprite.Sprite):
             self.moveLeft()
         if pygame.key.get_pressed()[K_d]:
             self.moveRight()
+
+
+
+    def collider(self, dir):
+        hits = pygame.sprite.spritecollide(self, self.colliders, False)
+
+        if hits:
+
+            if dir == 'x':
+                if self.delta_x > 0:
+                    self.rect.x = hits[0].rect.left - self.rect.width
+                if self.delta_x < 0:
+                    self.rect.x = hits[0].rect.right
+
+            elif dir == 'y':
+                if self.delta_y > 0:
+                    self.rect.y = hits[0].rect.top - self.rect.height
+                if self.delta_y < 0:
+                    self.rect.y = hits[0].rect.bottom

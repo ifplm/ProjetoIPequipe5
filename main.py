@@ -3,7 +3,6 @@ from pygame.locals import *
 from entities.walker import Walker
 from entities.map import Block
 from entities.map import BackGround
-# from entities.player import Player
 from constants import *
 
 
@@ -22,8 +21,8 @@ WALL_SPRITE_SHEET = pygame.image.load(WALL_SHEET_DIR).convert_alpha()
 GRASS_SPRITE_SHEET = pygame.image.load(GRASS_SHEET_DIR).convert_alpha()
 
 MENU_FROG_IMG = pygame.transform.scale(FROG_SPRITE_SHEET.subsurface((0, 0), (48, 48)), (48*2, 48*2))
-FROG_IMG  = FROG_SPRITE_SHEET.subsurface((0, 0), (48, 48)).convert_alpha()
-WALL1_IMG = WALL_SPRITE_SHEET.subsurface((TILE_SIZE*2, TILE_SIZE*3), (TILE_SIZE, TILE_SIZE))
+FROG_IMG  = FROG_SPRITE_SHEET.subsurface((12, 18), (22, 16)).convert_alpha()
+WALL1_IMG = WALL_SPRITE_SHEET.subsurface((TILE_SIZE*2, TILE_SIZE*4), (TILE_SIZE, TILE_SIZE))
 
 GRASS_IMGS = []
 for i in range(8):
@@ -31,7 +30,7 @@ for i in range(8):
         GRASS_IMGS.append(GRASS_SPRITE_SHEET.subsurface((TILE_SIZE*i, TILE_SIZE*j), (TILE_SIZE, TILE_SIZE)))
 
 
-player = Walker(SpriteGroup, 2, 2, FROG_IMG)
+player = Walker(SpriteGroup, BlockGroup, 4, 4, FROG_IMG)
 
 
 
@@ -99,9 +98,12 @@ def ShowMenu():
 
 
 
+CreateMap()
+
+
+BackGroundGroup.draw(TELA)
 ShowMenu()
 
-CreateMap()
 
 JOGANDO = True
 
