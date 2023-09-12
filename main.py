@@ -1,95 +1,102 @@
 import pygame, random
 from pygame.locals import *
-from entities.entitade import Entity
+from entities.walker import Walker
+from constants import *
 
-HEIGHT = 600
-WIDTH = 600
 
 pygame.init()
-tela = pygame.display.set_mode((HEIGHT, WIDTH))
-pygame.display.set_caption("Snake Game by SH12")
+pygame.display.set_caption(NOME_JOGO)
+
+TELA = pygame.display.set_mode((WIDTH, HEIGHT))
+CLOCK = pygame.time.Clock()
+FONTE = pygame.font.match_font(FONTE_NAME)
+SpriteGroup = pygame.sprite.Group() 
+SPRITE_SHEET = pygame.image.load(SHEET_DIR)
+FROG_IMG = pygame.transform.scale(SPRITE_SHEET.subsurface((0, 0), (48, 48)), (48*2, 48*2))
 
 
-jogador = Entity(300, 300, 10, 10)
 
-snake = [(300, 300), (310, 300), (310, 310)]
-
-skin_color = (100, 200, 50)
-skin = pygame.Surface((10, 10))
-skin.fill(skin_color)
-
-appos = (330, 330)
-apple = pygame.Surface((10, 10))
-apple.fill((200, 50, 65))
-
-clock = pygame.time.Clock()
-
-UP = 0
-DOWN= 1
-LEFT = 2
-RIGHT = 3
-
-def moveDir(tup, dir):
-    if dir == UP:
-        return (tup[0], (tup[1] - 10)%WIDTH)
-    if dir == DOWN:
-        return (tup[0], (tup[1] + 10)%WIDTH)
-    if dir == RIGHT:
-        return ((tup[0] + 10)%HEIGHT, tup[1])
-    if dir == LEFT:
-        return ((tup[0] - 10)%HEIGHT, tup[1])
-
-
-direction = 0
-gaming = True
-
-while True:
-
-    clock.tick(10)
-
-    jogador.draw()
-
+# Realiza as ações do Jogo
+def Events():
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
-        
-        if event.type == KEYDOWN:
-            if event.key == K_UP and direction != DOWN:
-                direction = UP
-            if event.key == K_DOWN and direction != UP:
-                direction = DOWN
-            if event.key == K_LEFT and direction != RIGHT:
-                direction = LEFT
-            if event.key == K_RIGHT and direction != LEFT:
-                direction = RIGHT
-
-    tela.fill((0, 0, 0))
-    tela.blit(apple, appos)
-
-    if(snake[0] == appos):
-        snake.append(snake[-1])
-        appos = (random.randint(0, HEIGHT/10 - 1)*10, random.randint(0, WIDTH/10 - 1)*10)
-    
-    if gaming:
-        snake.insert(0, moveDir(snake[0], direction) )
-        snake.pop()
-
-    color = skin_color
-    
-    for i in range(0, len(snake)):
-        pos = snake[i]
-        skin.fill(color)
-        tela.blit(skin, pos)
-
-        if gaming:
-            color = (color[0], (color[1] - 10) % 256, (color[2] + 5) % 255)
-        else:
-            color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
-        if( i > 0 and snake[0] == pos):
-            gaming = False
-        
 
 
 
-    pygame.display.update()
+# Atualiza as infos dos personagens, itens e mapa
+def Update():
+    SpriteGroup.update()
+
+
+def WaitPlayer():
+    waiting = True
+    while waiting:
+        CLOCK.tick(FPS)
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+            if event.type == KEYUP:
+                waiting = False
+
+
+# Desenha tudo na tela
+def Draw():
+    TELA.fill((0, 0, 0))
+    SpriteGroup.draw(TELA)
+    pygame.display.flip()
+
+
+def Write(text, x, y, size=FONTE_SZ, color=BRANCO):
+    fonte = pygame.font.Font(FONTE, size)
+    txt = fonte.render(text, True, color)
+    txt_rect = txt.get_rect()
+    txt_rect.midtop = (x, y)
+    TELA.blit(txt, txt_rect)
+
+
+def ShowMenu():
+
+    Write(NOME_JOGO, WIDTH/2, HEIGHT/3, TITLE_SZ, VERDE)
+    Write("Pressione Qualquer Tecla para Jogar...", WIDTH/2, HEIGHT/2+HEIGHT/3)
+
+    frg_rect = FROG_IMG.get_rect()
+    frg_rect.center = (WIDTH/2, 2*HEIGHT/3)
+    TELA.blit(FROG_IMG, frg_rect)
+
+    pygame.display.flip()
+
+    WaitPlayer()
+
+
+
+
+ShowMenu()
+
+
+JOGANDO = True
+
+while True:
+
+    CLOCK.tick(FPS)
+
+    if JOGANDO:
+        Events()
+        Update()
+        Draw()
+
+    else :
+        ShowMenu()
+
+
+
+
+
+# if pygame.key.get_pressed()[K_w]:
+#     jogador.moveUp()
+# if pygame.key.get_pressed()[K_s]:
+#     jogador.moveDown()
+# if pygame.key.get_pressed()[K_a]:
+#     jogador.moveLeft()
+# if pygame.key.get_pressed()[K_d]:
+#     jogador.moveRight()

@@ -1,6 +1,6 @@
 import pygame
 
-class Entity():
+class Walker():
 
     def __init__(self, x, y, h, w, v=10, skinColor = (100, 200, 50)):
         self.x = x
@@ -12,20 +12,18 @@ class Entity():
         self.skin.fill(skinColor)
 
 
-    def draw(tela):
+    def draw(self, tela):
         tela.blit(self.skin, (self.x, self.y))
 
-    def Teste():
-        print("sla")
 
-    def moveUp():
+    def moveUp(self):
         self.y -= self.Velocity
 
-    def moveDown():
+    def moveDown(self):
         self.y += self.Velocity
 
-    def moveLeft():
+    def moveLeft(self):
         self.x -= self.Velocity
 
-    def moveRight():
+    def moveRight(self):
         self.x += self.Velocity
