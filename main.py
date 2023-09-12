@@ -1,6 +1,7 @@
 import pygame, random
 from pygame.locals import *
 from entities.walker import Walker
+# from entities.player import Player
 from constants import *
 
 
@@ -10,10 +11,11 @@ pygame.display.set_caption(NOME_JOGO)
 TELA = pygame.display.set_mode((WIDTH, HEIGHT))
 CLOCK = pygame.time.Clock()
 FONTE = pygame.font.match_font(FONTE_NAME)
-SpriteGroup = pygame.sprite.Group() 
+SpriteGroup = pygame.sprite.LayeredUpdates() 
 SPRITE_SHEET = pygame.image.load(SHEET_DIR)
 FROG_IMG = pygame.transform.scale(SPRITE_SHEET.subsurface((0, 0), (48, 48)), (48*2, 48*2))
 
+player = Walker(SpriteGroup, 20, 20)
 
 
 # Realiza as ações do Jogo
@@ -22,10 +24,33 @@ def Events():
         if event.type == QUIT:
             pygame.quit()
 
+            if event.type == KEYDOWN:
+                if event.key == K_a:
+                    player.moveLeft()
+                elif event.key == K_d:
+                    player.moveRight()
+                elif event.key == K_w:
+                    player.moveUp()
+                elif event.key == K_s:
+                    player.moveDown()
+
 
 
 # Atualiza as infos dos personagens, itens e mapa
 def Update():
+
+    if pygame.key.get_pressed()[K_w]:
+        player.moveUp()
+        print("up")
+    if pygame.key.get_pressed()[K_s]:
+        player.moveDown()
+        print("down")
+    if pygame.key.get_pressed()[K_a]:
+        player.moveLeft()
+    if pygame.key.get_pressed()[K_d]:
+        player.moveRight()
+
+
     SpriteGroup.update()
 
 
@@ -78,8 +103,6 @@ JOGANDO = True
 
 while True:
 
-    CLOCK.tick(FPS)
-
     if JOGANDO:
         Events()
         Update()
@@ -88,15 +111,9 @@ while True:
     else :
         ShowMenu()
 
+    CLOCK.tick(FPS)
 
 
 
 
-# if pygame.key.get_pressed()[K_w]:
-#     jogador.moveUp()
-# if pygame.key.get_pressed()[K_s]:
-#     jogador.moveDown()
-# if pygame.key.get_pressed()[K_a]:
-#     jogador.moveLeft()
-# if pygame.key.get_pressed()[K_d]:
-#     jogador.moveRight()
+

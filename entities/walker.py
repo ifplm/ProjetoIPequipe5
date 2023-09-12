@@ -1,29 +1,46 @@
 import pygame
+import sys
+sys.path.append('..')
+from constants import *
+# from ..constants import *
 
-class Walker():
 
-    def __init__(self, x, y, h, w, v=10, skinColor = (100, 200, 50)):
-        self.x = x
-        self.y = y
+class Walker(pygame.sprite.Sprite):
+
+    def __init__(self, spriteGroup, x, y, w = MOB_WIDTH, h=MOB_HEIGTH):
+        
+        self.x = x*TILE_SIZE
+        self.y = y*TILE_SIZE
+     
         self.HEIGHT = h
         self.WIDTH = w
-        self.Velocity = v
-        self.skin = pygame.Surface((self.HEIGHT, self.WIDTH))
-        self.skin.fill(skinColor)
+     
+        self.groups = spriteGroup
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self._layer = MOB_LAYER
+        self.image = pygame.Surface([self.WIDTH, self.HEIGHT])
+        self.image.fill(VERDE)
+
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
 
 
-    def draw(self, tela):
-        tela.blit(self.skin, (self.x, self.y))
+
+    def update(self):
+        self.rect.y = self.y
+        self.rect.x = self.x
 
 
     def moveUp(self):
-        self.y -= self.Velocity
+        self.y -= TILE_SIZE
 
     def moveDown(self):
-        self.y += self.Velocity
+        self.y += TILE_SIZE
 
     def moveLeft(self):
-        self.x -= self.Velocity
+        self.x -= TILE_SIZE
 
     def moveRight(self):
-        self.x += self.Velocity
+        self.x += TILE_SIZE

@@ -3,6 +3,13 @@ import os
 HEIGHT = 480
 WIDTH = 640
 
+MOB_HEIGTH = 48
+MOB_WIDTH = 48
+
+MOB_LAYER = 1
+
+TILE_SIZE = 4
+
 FPS = 30
 
 NOME_JOGO = "CC Frog"
