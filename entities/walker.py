@@ -34,7 +34,7 @@ class Walker(pygame.sprite.Sprite):
         self.delta_y = 0
 
         self.facing = 1
-        # direção que o sapo está olhando | 1 - Right | 2 - Left |
+        # direção que o sapo está olhando | 1 - Right | 0 - Left |
 
         self.pontos = [0, 0, 0]
 
@@ -59,9 +59,14 @@ class Walker(pygame.sprite.Sprite):
         self.delta_y += self.VELOCITY
     def moveLeft(self):
         self.delta_x -= self.VELOCITY
+        if self.facing != 0:
+            self.image = pygame.transform.flip(self.image, True, False)
+        self.facing = 0
     def moveRight(self):
         self.delta_x += self.VELOCITY
-
+        if self.facing != 1:
+            self.image = pygame.transform.flip(self.image, True, False)
+        self.facing = 1
 
 
     def checkMove(self):

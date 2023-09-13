@@ -29,7 +29,7 @@ WALL1_IMG = WALL_SPRITE_SHEET.subsurface((TILE_SIZE*2, TILE_SIZE*4), (TILE_SIZE,
 
 GRASS_IMGS = []
 for i in range(8):
-    for j in range(4):
+    for j in range(5):
         GRASS_IMGS.append(GRASS_SPRITE_SHEET.subsurface((TILE_SIZE*i, TILE_SIZE*j), (TILE_SIZE, TILE_SIZE)))
 
 
