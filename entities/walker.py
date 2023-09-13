@@ -8,7 +8,7 @@ from constants import *
 
 class Walker(pygame.sprite.Sprite):
 
-    def __init__(self, spriteGroup, colliders, x, y, image, w = MOB_WIDTH, h=MOB_HEIGTH, velocity=MOB_VELOCITY):
+    def __init__(self, spriteGroup, colliders, ItemColliders, x, y, image, w = MOB_WIDTH, h=MOB_HEIGTH, velocity=MOB_VELOCITY):
         
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
@@ -21,6 +21,7 @@ class Walker(pygame.sprite.Sprite):
         
         self.groups = spriteGroup
         self.colliders = colliders
+        self.ItemColliders = ItemColliders
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.image = image
@@ -29,12 +30,13 @@ class Walker(pygame.sprite.Sprite):
         self.rect.x = self.x
         self.rect.y = self.y
 
-
         self.delta_x = 0
         self.delta_y = 0
 
         self.facing = 1
         # direção que o sapo está olhando | 1 - Right | 2 - Left |
+
+        self.pontos = [0, 0, 0]
 
 
     def update(self):
@@ -43,6 +45,8 @@ class Walker(pygame.sprite.Sprite):
         self.collider('x')
         self.rect.y += self.delta_y
         self.collider('y')
+
+        self.colliderItem()
 
         self.delta_x = 0
         self.delta_y = 0
@@ -70,6 +74,14 @@ class Walker(pygame.sprite.Sprite):
         if pygame.key.get_pressed()[K_d]:
             self.moveRight()
 
+
+    def colliderItem(self):
+        hits = pygame.sprite.spritecollide(self, self.ItemColliders, False)
+
+        if hits:
+            self.pontos[hits[0].id] += 1
+            hits[0].kill()
+            
 
 
     def collider(self, dir):

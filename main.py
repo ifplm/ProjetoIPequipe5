@@ -1,8 +1,7 @@
 import pygame, random
 from pygame.locals import *
 from entities.walker import Walker
-from entities.map import Block
-from entities.map import BackGround
+from entities.map import Block, BackGround, Item
 from constants import *
 
 
@@ -14,11 +13,15 @@ CLOCK = pygame.time.Clock()
 FONTE = pygame.font.match_font(FONTE_NAME)
 SpriteGroup = pygame.sprite.LayeredUpdates() 
 BlockGroup = pygame.sprite.LayeredUpdates() 
+ItemGroup = pygame.sprite.LayeredUpdates() 
 BackGroundGroup = pygame.sprite.LayeredUpdates() 
 
 FROG_SPRITE_SHEET = pygame.image.load(FROG_SHEET_DIR).convert_alpha()
 WALL_SPRITE_SHEET = pygame.image.load(WALL_SHEET_DIR).convert_alpha()
 GRASS_SPRITE_SHEET = pygame.image.load(GRASS_SHEET_DIR).convert_alpha()
+AVLC_IMG = pygame.image.load(AVLC_DIR).convert_alpha()
+MD_IMG = pygame.image.load(MD_DIR).convert_alpha()
+CALC_IMG = pygame.image.load(CALC_DIR).convert_alpha()
 
 MENU_FROG_IMG = pygame.transform.scale(FROG_SPRITE_SHEET.subsurface((0, 0), (48, 48)), (48*2, 48*2))
 FROG_IMG  = FROG_SPRITE_SHEET.subsurface((12, 18), (22, 16)).convert_alpha()
@@ -30,7 +33,7 @@ for i in range(8):
         GRASS_IMGS.append(GRASS_SPRITE_SHEET.subsurface((TILE_SIZE*i, TILE_SIZE*j), (TILE_SIZE, TILE_SIZE)))
 
 
-player = Walker(SpriteGroup, BlockGroup, 4, 4, FROG_IMG)
+player = Walker(SpriteGroup, BlockGroup, ItemGroup, 4, 4, FROG_IMG)
 
 
 
@@ -60,17 +63,32 @@ def Update():
 
 # Desenha tudo na tela
 def Draw():
+
     TELA.fill((0, 0, 0))
     SpriteGroup.draw(TELA)
+
+    Write(f"COLETADOS:", WIDTH/2, HEIGHT/2)
+    Write(f"MD: {player.pontos[1]}", WIDTH/2, HEIGHT/2+HEIGHT/3)
+    Write(f"AVLC: {player.pontos[0]}", WIDTH/2, HEIGHT/2+HEIGHT/3 + FONTE_SZ)
+    Write(f"CALC: {player.pontos[2]}", WIDTH/2, HEIGHT/2+HEIGHT/3 + FONTE_SZ + FONTE_SZ)
+    
     pygame.display.flip()
 
-
+#Cria o mapa
 def CreateMap():
     for i, linha in enumerate(TILE_MAP):
         for j, b in enumerate(linha):
             if b == "W":
                 Block([SpriteGroup, BlockGroup], j, i, WALL1_IMG)
-            
+            if b == "A":
+                Item([SpriteGroup, ItemGroup], j, i, AVLC_IMG, 0)
+            if b == "M":
+                Item([SpriteGroup, ItemGroup], j, i, MD_IMG, 1)
+            if b == "C":
+                Item([SpriteGroup, ItemGroup], j, i, CALC_IMG, 2)
+
+    for i in range(int(HEIGHT / TILE_SIZE) ):
+        for j in range(int(WIDTH / TILE_SIZE) ):
             BackGround([SpriteGroup, BackGroundGroup], j, i, GRASS_IMGS[random.randint(0, len(GRASS_IMGS)-1)])
 
 
@@ -118,8 +136,3 @@ while True:
         ShowMenu()
 
     CLOCK.tick(FPS)
-
-
-
-
-
