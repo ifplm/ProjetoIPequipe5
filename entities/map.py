@@ -101,10 +101,10 @@ class Map:
         self.BackGroundGroup = pygame.sprite.LayeredUpdates() 
 
         self.anchor = BackGround([self.SpriteGroup, self.BackGroundGroup], 0, 0, GRASS_IMGS[0])
-        self.map[(0, 0)] = INITIAL_MAP
+        self.map[(0, 0)] = MARKER_MAP
 
         self.CreateMap(0, 0)
-        self.checkForUpdates(0, 0)
+        self.checkForUpdates(WIDTH/2, HEIGHT/2)
 
 
     # Coloca os objetos no mapa
@@ -130,16 +130,15 @@ class Map:
 
         for i in range(CHUNK_SIZE):
             for j in range(CHUNK_SIZE):
-                BackGround([self.SpriteGroup, self.BackGroundGroup], j+delta_x, i+delta_y, GRASS_IMGS[random.randint(0, len(GRASS_IMGS)-16)])
+                BackGround([self.SpriteGroup, self.BackGroundGroup], j+delta_x, i+delta_y, GRASS_IMGS[random.randint(0, len(GRASS_IMGS)-1)])
     
 
     # Cria um novo chunk randômico
     def GenerateChunk(self, Chunk_X, Chunk_Y):
-
         if (Chunk_X, Chunk_Y) in self.map:
             return
 
-        self.map[(Chunk_X, Chunk_Y)] = MARKER_MAP
+        self.map[(Chunk_X, Chunk_Y)] = RANDOM_MAP[random.randint(0, len(RANDOM_MAP)-1)]
 
         self.CreateMap(Chunk_X, Chunk_Y)
 
