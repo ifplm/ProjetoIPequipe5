@@ -55,15 +55,36 @@ class Walker(pygame.sprite.Sprite):
 
     def moveUp(self):
         self.delta_y -= self.VELOCITY
+        self.y -= self.VELOCITY
+
+        for sprite in self.groups:
+            sprite.rect.y += self.VELOCITY
+
     def moveDown(self):
         self.delta_y += self.VELOCITY
+        self.y += self.VELOCITY
+
+        for sprite in self.groups:
+            sprite.rect.y -= self.VELOCITY
+
     def moveLeft(self):
         self.delta_x -= self.VELOCITY
+        self.x -= self.VELOCITY
+
+        for sprite in self.groups:
+            sprite.rect.x += self.VELOCITY
+
         if self.facing != 0:
             self.image = pygame.transform.flip(self.image, True, False)
         self.facing = 0
+
     def moveRight(self):
         self.delta_x += self.VELOCITY
+        self.x += self.VELOCITY
+
+        for sprite in self.groups:
+            sprite.rect.x -= self.VELOCITY
+
         if self.facing != 1:
             self.image = pygame.transform.flip(self.image, True, False)
         self.facing = 1
@@ -97,11 +118,23 @@ class Walker(pygame.sprite.Sprite):
             if dir == 'x':
                 if self.delta_x > 0:
                     self.rect.x = hits[0].rect.left - self.rect.width
+                    self.x += self.VELOCITY
+                    for sprite in self.groups:
+                        sprite.rect.x += self.VELOCITY
                 if self.delta_x < 0:
                     self.rect.x = hits[0].rect.right
+                    self.x -= self.VELOCITY
+                    for sprite in self.groups:
+                        sprite.rect.x -= self.VELOCITY
 
             elif dir == 'y':
                 if self.delta_y > 0:
                     self.rect.y = hits[0].rect.top - self.rect.height
+                    self.y += self.VELOCITY
+                    for sprite in self.groups:
+                        sprite.rect.y += self.VELOCITY
                 if self.delta_y < 0:
                     self.rect.y = hits[0].rect.bottom
+                    self.y -= self.VELOCITY
+                    for sprite in self.groups:
+                        sprite.rect.y -= self.VELOCITY
