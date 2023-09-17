@@ -91,13 +91,13 @@ class Walker(pygame.sprite.Sprite):
 
 
     def checkMove(self):
-        if pygame.key.get_pressed()[K_w]:
+        if pygame.key.get_pressed()[K_w] or pygame.key.get_pressed()[K_UP]:
             self.moveUp()
-        if pygame.key.get_pressed()[K_s]:
+        if pygame.key.get_pressed()[K_s] or pygame.key.get_pressed()[K_DOWN]:
             self.moveDown()
-        if pygame.key.get_pressed()[K_a]:
+        if pygame.key.get_pressed()[K_a] or pygame.key.get_pressed()[K_LEFT]:
             self.moveLeft()
-        if pygame.key.get_pressed()[K_d]:
+        if pygame.key.get_pressed()[K_d] or pygame.key.get_pressed()[K_RIGHT]:
             self.moveRight()
 
 
@@ -107,8 +107,9 @@ class Walker(pygame.sprite.Sprite):
         if hits:
             self.pontos[hits[0].id] += 1
             hits[0].kill()
-            
-
+            som_da_colisao = pygame.mixer.Sound('som_da_colisao.wav')
+            som_da_colisao.play()
+            som_da_colisao.set_volume(1)
 
     def collider(self, dir):
         hits = pygame.sprite.spritecollide(self, self.colliders, False)

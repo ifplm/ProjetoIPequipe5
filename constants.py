@@ -17,7 +17,7 @@ BACK_GROUND_LAYER = 1
 
 FPS = 30
 
-NOME_JOGO = "CC Frog"
+NOME_JOGO = "Frog Adventures"
 FONTE_NAME = "arial"
 FONTE_SZ = 32
 TITLE_SZ = 64

@@ -9,6 +9,10 @@ from constants import *
 pygame.init()
 pygame.display.set_caption(NOME_JOGO)
 
+musica_de_fundo = pygame.mixer.music.load('musica_de_fundo.mp3')
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.5)
+
 TELA = pygame.display.set_mode((WIDTH, HEIGHT))
 CLOCK = pygame.time.Clock()
 
