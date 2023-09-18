@@ -2,16 +2,14 @@ import pygame, random
 from pygame.locals import *
 from entities.walker import Walker
 from entities.map import Block, BackGround, Item, Map
-from UI import UI
 from constants import *
-
+from UI import UI
 
 pygame.init()
 pygame.display.set_caption(NOME_JOGO)
 
-musica_de_fundo = pygame.mixer.music.load('musica_de_fundo.mp3')
 pygame.mixer.music.play(-1)
-pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.set_volume(0.3)
 
 TELA = pygame.display.set_mode((WIDTH, HEIGHT))
 CLOCK = pygame.time.Clock()
