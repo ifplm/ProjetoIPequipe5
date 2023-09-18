@@ -142,4 +142,24 @@ SOME_MAP = [
 
 ]
 
-RANDOM_MAP = [MAZE_MAP, INITIAL_MAP, MARKER_MAP, SOME_MAP]
+ALTERNATIVE_MAP = [
+    "WWW.....C....WWW",
+    ".....WWWWWWW....",
+    "......WWWW......",
+    ".......WW.......",
+    ".......A.........",
+    ".................",
+    "................",
+    "A....WWWWW.....M",
+    "W......M.......W",
+    "M....WWWWW.....C",
+    "W......C.......W",
+    "C.....WWW......A",
+    ".......A.......",
+    "................",
+    "..WWWW.M.WWWW...",
+    "......WWW.......",
+
+]
+
+RANDOM_MAP = [MAZE_MAP, INITIAL_MAP, MARKER_MAP, SOME_MAP, ALTERNATIVE_MAP]
