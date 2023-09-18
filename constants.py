@@ -1,4 +1,6 @@
 import os
+import pygame
+pygame.init()
 
 TILE_SIZE = 32
 
@@ -50,6 +52,9 @@ MD_DIR = os.path.join(IMAGE_DIR, MD_SPRITE_NAME)
 AVLC_DIR = os.path.join(IMAGE_DIR, AVLC_SPRITE_NAME)
 CALC_DIR = os.path.join(IMAGE_DIR, CALC_SPRITE_NAME)
 
+MUSICA_DE_FUNDO = pygame.mixer.music.load('musica_de_fundo.mp3')
+ 
+SOM_DA_COLISAO = pygame.mixer.Sound('som_da_colisao.wav')
 
 
 INITIAL_MAP = [
@@ -110,4 +115,24 @@ MAZE_MAP = [
     "WWWWWWWWW...WWWW",
 ]
 
-RANDOM_MAP = [MAZE_MAP, INITIAL_MAP, MARKER_MAP]
+SOME_MAP = [
+    "....WWWW....A...",
+    "WW..WW..WW..WW..",
+    "...C....WWWW...M",
+    "WWWW......WWWWA.",
+    "WWWWWWW..WWWWWWW",
+    "WWW.......WWWWW.",
+    "MWWWWWWWWWWWWWW.",
+    "WWWWWWWW........",
+    "WWWWWWWWWWWWWWWC",
+    "................",
+    "W........W.....W",
+    "................",
+    "..........WWWWWW",
+    "WWWWWWWWWW......",
+    "WWWWWWWWWWWWWWWW",
+    "WW..............",
+
+]
+
+RANDOM_MAP = [MAZE_MAP, INITIAL_MAP, MARKER_MAP, SOME_MAP]
