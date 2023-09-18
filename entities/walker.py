@@ -45,7 +45,7 @@ class Walker(pygame.sprite.Sprite):
         self.collider('x')
         self.rect.y += self.delta_y
         self.collider('y')
-
+        self.collider_enemy()
         self.colliderItem()
 
         self.delta_x = 0
