@@ -22,7 +22,9 @@ class UI:
         frg_rect.center = (WIDTH/2, 2*HEIGHT/3)
         self.TELA.blit(self.MENU_FROG_IMG, frg_rect)
 
-        self.create_button(WIDTH/2, HEIGHT/2, 140, 40, 'Play')
+        self.create_button(WIDTH/2, HEIGHT/2, 140, 40, 'Play', AZUL)
+        self.create_button(WIDTH/2, HEIGHT/2 + 50, 140, 40, 'Credits', VERDE)    
+
         smallfont = pygame.font.SysFont('Corbel', 35)
         text = smallfont.render('quit' , True , color)  
 
