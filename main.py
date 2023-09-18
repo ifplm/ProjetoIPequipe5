@@ -1,6 +1,7 @@
 import pygame, random
 from pygame.locals import *
 from entities.walker import Walker
+from entities.enemy import Enemy
 from entities.map import Block, BackGround, Item, Map
 from constants import *
 from UI import UI
@@ -15,12 +16,13 @@ TELA = pygame.display.set_mode((WIDTH, HEIGHT))
 CLOCK = pygame.time.Clock()
 
 SpriteGroup = pygame.sprite.LayeredUpdates() 
-
+EnemyGroup = pygame.sprite.LayeredUpdates()
 
 FROG_SPRITE_SHEET = pygame.image.load(FROG_SHEET_DIR).convert_alpha()
 MENU_FROG_IMG = pygame.transform.scale(FROG_SPRITE_SHEET.subsurface((0, 0), (48, 48)), (48*2, 48*2))
 FROG_IMG  = FROG_SPRITE_SHEET.subsurface((12, 18), (22, 16)).convert_alpha()
-
+SKELETON_SPRITE_SHEET = pygame.image.load(SKELETON_SHEET_DIR).convert_alpha()
+SKELETON_IMG  = SKELETON_SPRITE_SHEET.subsurface((0, 0), (48, 48)).convert_alpha()
 
 Mapa = Map(SpriteGroup)
 Ui = UI(TELA)
@@ -29,8 +31,9 @@ BlockGroup = Mapa.BlockGroup
 BackGroundGroup = Mapa.BackGroundGroup
 ItemGroup = Mapa.ItemGroup
 
-player = Walker(SpriteGroup, BlockGroup, ItemGroup, WIDTH/TILE_SIZE/2, HEIGHT/TILE_SIZE/2, FROG_IMG)
+player = Walker(SpriteGroup, BlockGroup, ItemGroup, EnemyGroup, WIDTH/TILE_SIZE/2, HEIGHT/TILE_SIZE/2, FROG_IMG)
 
+enemy = Enemy([SpriteGroup, EnemyGroup], BlockGroup, player, 10, 10, SKELETON_IMG, velocity=2)
 
 def WaitPlayer():
     waiting = True
@@ -62,12 +65,15 @@ def Events():
         if WIDTH/2 <= mouse[0] <= WIDTH/2+140 and WIDTH/2 <= mouse[1] <= HEIGHT/2+40:  
             pygame.draw.rect(TELA,color_light,[WIDTH/2,HEIGHT/2,140,40])  
 
-        
 
+JOGANDO = True
 
 # Atualiza as infos dos personagens, itens e mapa
 def Update():
-    player.checkMove()
+    if player.vivo:
+        player.checkMove()
+    else:
+        JOGANDO = False
     Mapa.checkForUpdates(player.rect.x, player.rect.y)
     SpriteGroup.update()
 
@@ -87,8 +93,6 @@ Ui.ShowMenu()
 WaitPlayer()
 
 
-JOGANDO = True
-
 while True:
 
     if JOGANDO:
@@ -96,7 +100,9 @@ while True:
         Update()
         Draw()
 
-    else :
+    else:
         Ui.ShowMenu()
+        WaitPlayer()
+        JOGANDO = True
 
     CLOCK.tick(FPS)
