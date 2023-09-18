@@ -11,10 +11,11 @@ class UI:
 
         FROG_SPRITE_SHEET = pygame.image.load(FROG_SHEET_DIR).convert_alpha()
         self.MENU_FROG_IMG = pygame.transform.scale(FROG_SPRITE_SHEET.subsurface((0, 0), (48, 48)), (48*2, 48*2))
+        self.background = pygame.image.load(BACKGROUND_DIR)
 
 
     def ShowMenu(self):
-
+        self.TELA.blit(self.background, (0 , 0, WIDTH, HEIGHT))
         self.Write(NOME_JOGO, WIDTH/2, HEIGHT/3, TITLE_SZ, VERDE)
         self.Write("Pressione Qualquer Tecla para Jogar...", WIDTH/2, HEIGHT/2+HEIGHT/3)
 
