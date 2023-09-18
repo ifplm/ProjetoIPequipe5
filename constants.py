@@ -29,7 +29,10 @@ VERMELHO = (255, 0, 0)
 VERDE = (0, 255, 100)
 AZUL = (0, 0, 255)
 BLUE = (0, 0, 255)
-
+color = (255, 255, 255)
+color_light = (170, 170, 170)
+color_dark = (100, 100, 100)
+COLOR_BUTTON = (100, 100, 100)
 
 # Diretorios
 DIR = os.getcwd()

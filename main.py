@@ -24,7 +24,6 @@ MENU_FROG_IMG = pygame.transform.scale(FROG_SPRITE_SHEET.subsurface((0, 0), (48,
 FROG_IMG  = FROG_SPRITE_SHEET.subsurface((12, 18), (22, 16)).convert_alpha()
 
 
-
 Mapa = Map(SpriteGroup)
 Ui = UI(TELA)
 
@@ -51,6 +50,21 @@ def Events():
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+
+            if WIDTH/2 <= mouse[0] <= WIDTH/2+140 and HEIGHT/2 <= mouse[1] <= HEIGHT/2+40:  
+                pygame.quit()  
+
+
+        TELA.fill((60, 25, 60))
+
+        mouse = pygame.mouse.get_pos()
+
+        if WIDTH/2 <= mouse[0] <= WIDTH/2+140 and WIDTH/2 <= mouse[1] <= HEIGHT/2+40:  
+            pygame.draw.rect(TELA,color_light,[WIDTH/2,HEIGHT/2,140,40])  
+
+        
 
 
 # Atualiza as infos dos personagens, itens e mapa

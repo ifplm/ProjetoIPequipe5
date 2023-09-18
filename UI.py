@@ -22,10 +22,13 @@ class UI:
         frg_rect.center = (WIDTH/2, 2*HEIGHT/3)
         self.TELA.blit(self.MENU_FROG_IMG, frg_rect)
 
+        self.create_button(WIDTH/2, HEIGHT/2, 140, 40, 'Play')
+        smallfont = pygame.font.SysFont('Corbel', 35)
+        text = smallfont.render('quit' , True , color)  
+
         pygame.display.flip()
 
-
-    
+     
     def Write(self, text, x, y, size=FONTE_SZ, color=BRANCO):
         fonte = pygame.font.Font(self.FONTE, size)
         txt = fonte.render(text, True, color)
@@ -40,3 +43,20 @@ class UI:
             self.Write(f"MD: {md}", WIDTH/2, HEIGHT/2+HEIGHT/3)
             self.Write(f"AVLC: {avlc}", WIDTH/2, HEIGHT/2+HEIGHT/3 + FONTE_SZ)
             self.Write(f"CALC: {calc}", WIDTH/2, HEIGHT/2+HEIGHT/3 + FONTE_SZ + FONTE_SZ)
+
+    def create_button(self, x, y, width, height, text, color = COLOR_BUTTON):
+
+        rect = (pygame.Rect(x, y, width, height)) 
+        rect.center = (x, y)
+        pygame.draw.rect(self.TELA, color, rect)
+        self.Write(text, x, y - FONTE_SZ/2)
+
+
+        
+
+
+
+
+
+
+
