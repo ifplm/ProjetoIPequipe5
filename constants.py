@@ -181,4 +181,24 @@ ALTERNATIVE_MAP_2 = [
     "WW............WW", 
 ]
 
-RANDOM_MAP = [MAZE_MAP, INITIAL_MAP, MARKER_MAP, SOME_MAP, ALTERNATIVE_MAP, ALTERNATIVE_MAP_2]
+TEMPLE_MAP = [
+    "................",
+    "................",
+    "..wwwww..wwwww..",
+    "..w.........Mw..",
+    "..w..wwwwww..w..",
+    "..w...CwwA...w..",
+    "..w..wwwwww..w..",
+    "......Cww.......",
+    ".......wwC......",
+    "..w..wwwwww..w..",
+    "..w...MwwC...w..",
+    "..w..wwwwww..w..",
+    "..wA.........w..",
+    "..wwwww..wwwww..",
+    "................",
+    "................",
+
+]
+
+RANDOM_MAP = [MAZE_MAP, INITIAL_MAP, MARKER_MAP, SOME_MAP, ALTERNATIVE_MAP, ALTERNATIVE_MAP_2, TEMPLE_MAP]
