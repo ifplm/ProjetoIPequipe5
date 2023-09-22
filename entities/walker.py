@@ -117,6 +117,9 @@ class Walker(pygame.sprite.Sprite):
             hits[0].kill()
             self.kill()
             self.vivo = False
+            pygame.mixer.music.stop()
+            SOM_MORREU.play()
+            SOM_MORREU.set_volume(1)
 
     def collider(self, dir):
         hits = pygame.sprite.spritecollide(self, self.colliders, False)

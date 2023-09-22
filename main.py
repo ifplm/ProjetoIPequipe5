@@ -54,7 +54,7 @@ def Update():
     else:
         global JOGANDO
         JOGANDO = False
-        
+
         Ui.GameOver()
 
     Mapa.checkForUpdates(player.rect.x, player.rect.y)
@@ -95,7 +95,8 @@ def InitGame():
     global JOGANDO
     JOGANDO = True
 
-
+    pygame.mixer.music.play(-1)
+    pygame.mixer.Sound.stop(SOM_MORREU)
 
 JOGANDO = False
 

@@ -62,8 +62,10 @@ CALC_DIR = os.path.join(IMAGE_DIR, CALC_SPRITE_NAME)
 
 
 MUSICA_DE_FUNDO = pygame.mixer.music.load('musica_de_fundo.mp3')
- 
+
 SOM_DA_COLISAO = pygame.mixer.Sound('som_da_colisao.wav')
+
+SOM_MORREU = pygame.mixer.Sound('som_morreu.wav')
 
 
 INITIAL_MAP = [
