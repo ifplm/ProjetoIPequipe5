@@ -52,7 +52,6 @@ class Walker(pygame.sprite.Sprite):
         self.delta_y = 0
 
 
-
     def moveUp(self):
         self.delta_y -= self.VELOCITY
         self.y -= self.VELOCITY
@@ -115,6 +114,7 @@ class Walker(pygame.sprite.Sprite):
         hits = pygame.sprite.spritecollide(self, self.enemyCollider, False)
 
         if hits:
+            hits[0].kill()
             self.kill()
             self.vivo = False
 
@@ -146,3 +146,6 @@ class Walker(pygame.sprite.Sprite):
                     self.y -= self.VELOCITY
                     for sprite in self.groups:
                         sprite.rect.y -= self.VELOCITY
+
+    def Alive(self):
+        self.vivo = True

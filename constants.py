@@ -21,6 +21,7 @@ FPS = 30
 
 NOME_JOGO = "Frog Adventures"
 FONTE_NAME = "arial"
+SMALL_FONT = 'Corbel'
 FONTE_SZ = 32
 TITLE_SZ = 64
 
@@ -58,6 +59,7 @@ BACKGROUND_DIR = os.path.join(IMAGE_DIR, BACKGROUND_NAME)
 MD_DIR = os.path.join(IMAGE_DIR, MD_SPRITE_NAME)
 AVLC_DIR = os.path.join(IMAGE_DIR, AVLC_SPRITE_NAME)
 CALC_DIR = os.path.join(IMAGE_DIR, CALC_SPRITE_NAME)
+
 
 MUSICA_DE_FUNDO = pygame.mixer.music.load('musica_de_fundo.mp3')
  

@@ -113,10 +113,6 @@ class Map:
         delta_x = (Chunk_X * CHUNK_SIZE + (self.anchor.rect.x / TILE_SIZE))
         delta_y = (Chunk_Y * CHUNK_SIZE + (self.anchor.rect.y / TILE_SIZE))
 
-        print(Chunk_X, Chunk_Y)
-        print(delta_x, delta_y)
-        print()
-
         for i, linha in enumerate(self.map[(Chunk_X, Chunk_Y)]):
             for j, b in enumerate(linha):
                 if b == "W":
