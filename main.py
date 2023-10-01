@@ -1,7 +1,7 @@
 import pygame, random
 from pygame.locals import *
 from entities.walker import Walker
-from entities.enemy import Enemy
+from entities.enemy import Enemy, Ghost
 from entities.map import Block, BackGround, Item, Map
 from constants import *
 from UI import UI
@@ -20,6 +20,8 @@ FROG_SPRITE_SHEET = pygame.image.load(FROG_SHEET_DIR).convert_alpha()
 FROG_IMG  = FROG_SPRITE_SHEET.subsurface((12, 18), (22, 16)).convert_alpha()
 SKELETON_SPRITE_SHEET = pygame.image.load(SKELETON_SHEET_DIR).convert_alpha()
 SKELETON_IMG  = SKELETON_SPRITE_SHEET.subsurface((0, 0), (48, 48)).convert_alpha()
+GHOST_SPRITE_SHEET = pygame.image.load(GHOST_SHEET_DIR).convert_alpha()
+GHOST_IMG  = GHOST_SPRITE_SHEET.subsurface((0, 0), (32, 32)).convert_alpha()
 
 
 SpriteGroup = pygame.sprite.LayeredUpdates() 
@@ -43,7 +45,12 @@ def generateEnemies():
     if random.randint(0, 1) == 0:
         y *= -1
 
-    Enemy([SpriteGroup, EnemyGroup], BlockGroup, player, x + PLAYER_DEFAULT_X, y + PLAYER_DEFAULT_Y, SKELETON_IMG, velocity=2)
+
+    if random.randint(0, 1) == 0:
+        Enemy([SpriteGroup, EnemyGroup], BlockGroup, player, x + PLAYER_DEFAULT_X, y + PLAYER_DEFAULT_Y, SKELETON_IMG, velocity=2)
+    
+    else:
+        Ghost([SpriteGroup, EnemyGroup], BlockGroup, player, x + PLAYER_DEFAULT_X, y + PLAYER_DEFAULT_Y, GHOST_IMG, velocity=1.5)
 
 # Realiza as ações do Jogo
 def Events():
