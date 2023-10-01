@@ -20,6 +20,8 @@ class UI:
 
     def ShowMenu(self):
 
+        creditos = False
+
         LOOP = True
         while LOOP:
             self.TELA.blit(self.background, (0 , 0, WIDTH, HEIGHT))
@@ -29,6 +31,14 @@ class UI:
 
             credits = self.create_button(WIDTH/2, HEIGHT/2 + 50, 140, 40, 'Credits', VERDE)
             play = self.create_button(WIDTH/2, HEIGHT/2, 140, 40, 'Play', AZUL)
+
+            if creditos:
+                s = pygame.Surface((WIDTH, HEIGHT/5), pygame.SRCALPHA)
+                s.fill((0, 0, 0, 128))
+                self.TELA.blit(s, (0, HEIGHT - 4*FONTE_SZ))
+
+                self.Write("Gabriel Stanford, Igor Fragoso, Pedro Dantas,", WIDTH/2, HEIGHT - 3*FONTE_SZ, FONTE_SZ, BRANCO)
+                self.Write("Pedro Elias e Samuell Costa", WIDTH/2, HEIGHT - 2*FONTE_SZ, FONTE_SZ, BRANCO)
 
             pygame.display.flip()
 
@@ -40,7 +50,8 @@ class UI:
             if credits:
                 print("CREDITS")
                 self.resetEvents()
-            
+                creditos = not creditos
+
 
             self.Events()
             self.CLOCK.tick(FPS)

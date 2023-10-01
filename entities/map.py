@@ -8,12 +8,18 @@ from constants import *
 
 WALL_SPRITE_SHEET = pygame.image.load(WALL_SHEET_DIR)
 GRASS_SPRITE_SHEET = pygame.image.load(GRASS_SHEET_DIR)
+OBJETO_SPRITE_SHEET = pygame.image.load(OBJETO_SHEET_DIR)
+
 
 AVLC_IMG = pygame.image.load(AVLC_DIR)
 MD_IMG = pygame.image.load(MD_DIR)
 CALC_IMG = pygame.image.load(CALC_DIR)
 
 WALL1_IMG = WALL_SPRITE_SHEET.subsurface((TILE_SIZE*2, TILE_SIZE*4), (TILE_SIZE, TILE_SIZE))
+VASE_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*5, TILE_SIZE*7), (TILE_SIZE, TILE_SIZE))
+BARRIL_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*5, TILE_SIZE*5), (TILE_SIZE, TILE_SIZE))
+BANCO_HORIZONTAL_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*9, TILE_SIZE), (TILE_SIZE*2, TILE_SIZE))
+ALTAR_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*11, TILE_SIZE*8), (TILE_SIZE*3, TILE_SIZE*3))
 
 GRASS_IMGS = []
 for i in range(5):
@@ -45,7 +51,7 @@ class Block(pygame.sprite.Sprite):
 
 class BackGround(pygame.sprite.Sprite):
     
-    def __init__(self, spriteGroups, x, y, image):
+    def __init__(self, spriteGroups, x, y, image, layer=BACK_GROUND_LAYER):
 
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
@@ -53,7 +59,7 @@ class BackGround(pygame.sprite.Sprite):
         self.HEIGHT = TILE_SIZE
         self.WIDTH = TILE_SIZE
 
-        self._layer = BACK_GROUND_LAYER
+        self._layer = layer
 
         self.groups = spriteGroups
         pygame.sprite.Sprite.__init__(self, self.groups)
@@ -123,6 +129,15 @@ class Map:
                     Item([self.SpriteGroup, self.ItemGroup], j+delta_x, i+delta_y, MD_IMG, 1)
                 if b == "C":
                     Item([self.SpriteGroup, self.ItemGroup], j+delta_x, i+delta_y, CALC_IMG, 2)
+                if b == "V":
+                    Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, VASE_IMG)
+                if b == "B":
+                    Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, BARRIL_IMG)
+                if b == "2":
+                    Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, BANCO_HORIZONTAL_IMG)
+                if b == "P":
+                    BackGround([self.SpriteGroup, self.BackGroundGroup], j+delta_x, i+delta_y, ALTAR_IMG, BLOCK_LAYER)
+
 
         for i in range(CHUNK_SIZE):
             for j in range(CHUNK_SIZE):

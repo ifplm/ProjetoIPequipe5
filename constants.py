@@ -13,11 +13,12 @@ MOB_HEIGTH = TILE_SIZE
 MOB_WIDTH = TILE_SIZE
 MOB_VELOCITY = 5
 
-MAX_MOBS = 30
-SPAW_CHANCE = 20 # %
-SPAW_MIN_DIST = 3
+MAX_MOBS = 15
+SPAW_CHANCE = 10 # %
+SPAW_MIN_DIST = 10
 SPAW_MAX_DIST = SPAW_MIN_DIST +  1 * CHUNK_SIZE
 UNSPAW_DIST =   2 * CHUNK_SIZE * TILE_SIZE
+GHOST_RARITY = 25
 
 MOB_LAYER = 3
 BLOCK_LAYER = 2
@@ -59,6 +60,7 @@ CALC_SPRITE_NAME = "CALC_Book.png"
 SKELETON_IDLE_NAME = "skeleton-idle.png"
 GHOST_IDLE_NAME = "ghostDead-Sheet.png"
 BACKGROUND_NAME = 'background.jpg'
+OBJETOS_SPRITES_NAME = "Misc_Sheet.png"
 
 FROG_SHEET_DIR = os.path.join(IMAGE_DIR, FROG_SPRITE_NAME)
 WALL_SHEET_DIR = os.path.join(IMAGE_DIR, WALL_SPRITE_NAME)
@@ -66,6 +68,7 @@ GRASS_SHEET_DIR = os.path.join(IMAGE_DIR, GRASS_SPRITE_NAME,)
 SKELETON_SHEET_DIR = os.path.join(IMAGE_DIR, SKELETON_IDLE_NAME)
 GHOST_SHEET_DIR = os.path.join(IMAGE_DIR, GHOST_IDLE_NAME)
 BACKGROUND_DIR = os.path.join(IMAGE_DIR, BACKGROUND_NAME)
+OBJETO_SHEET_DIR = os.path.join(IMAGE_DIR, OBJETOS_SPRITES_NAME)
 
 MD_DIR = os.path.join(IMAGE_DIR, MD_SPRITE_NAME)
 AVLC_DIR = os.path.join(IMAGE_DIR, AVLC_SPRITE_NAME)
@@ -100,11 +103,11 @@ INITIAL_MAP = [
 
 MARKER_MAP = [
     "WW............WW",
-    "W..............W",
+    "WB.............W",
     "................",
     "....E...C.......",
-    ".............E..",
-    "................",
+    ".......2.V...E..",
+    ".......P........",
     "................",
     "........E.......",
     "....M...........",

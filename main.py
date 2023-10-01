@@ -35,7 +35,7 @@ def generateEnemies():
     if len(EnemyGroup) >= MAX_MOBS:
         return
     
-    x = random.randint(SPAW_MIN_DIST, SPAW_MAX_DIST) 
+    x = random.randint(SPAW_MIN_DIST, SPAW_MAX_DIST)
     y = random.randint(SPAW_MIN_DIST, SPAW_MAX_DIST)
 
     if random.randint(0, 1) == 0:
@@ -45,7 +45,7 @@ def generateEnemies():
         y *= -1
 
 
-    if random.randint(0, 1) == 0:
+    if random.randint(0, 100) > GHOST_RARITY:
         Enemy([SpriteGroup, EnemyGroup], BlockGroup, player, x + PLAYER_DEFAULT_X, y + PLAYER_DEFAULT_Y, SKELETON_IMG, velocity=2)
     
     else:
@@ -60,7 +60,7 @@ def Events():
         if event.type == pygame.MOUSEBUTTONDOWN:
 
             if WIDTH/2 <= mouse[0] <= WIDTH/2+140 and HEIGHT/2 <= mouse[1] <= HEIGHT/2+40:  
-                pygame.quit()  
+                pygame.quit() 
 
 
         TELA.fill((60, 25, 60))
@@ -114,9 +114,6 @@ def InitGame():
     global player
     player = Walker(SpriteGroup, BlockGroup, ItemGroup, EnemyGroup, WIDTH/TILE_SIZE/2, HEIGHT/TILE_SIZE/2, FROG_IMG)
     
-    global enemy
-    enemy = Enemy([SpriteGroup, EnemyGroup], BlockGroup, player, 10, 10, SKELETON_IMG, velocity=2)
-
     global JOGANDO
     JOGANDO = True
 
