@@ -21,7 +21,6 @@ VASE2_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*5, TILE_SIZE*9), (TILE_SIZ
 BARRIL_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*5, TILE_SIZE*5), (TILE_SIZE, TILE_SIZE))
 BANCO_HORIZONTAL_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*9, TILE_SIZE), (TILE_SIZE*2, TILE_SIZE))
 ALTAR_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*11, TILE_SIZE*8), (TILE_SIZE*3, TILE_SIZE*3))
-CRUZ_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*7, TILE_SIZE*10), (TILE_SIZE, TILE_SIZE))
 LAPIDE_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*9, TILE_SIZE*8), (TILE_SIZE, TILE_SIZE))
 
 
@@ -143,8 +142,6 @@ class Map:
                     Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, BANCO_HORIZONTAL_IMG)
                 if b == "P":
                     BackGround([self.SpriteGroup, self.BackGroundGroup], j+delta_x, i+delta_y, ALTAR_IMG, BLOCK_LAYER)
-                if b == "c":
-                    Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, CRUZ_IMG)
                 if b == "L":
                     Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, LAPIDE_IMG)
 
