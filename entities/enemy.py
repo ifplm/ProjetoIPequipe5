@@ -54,6 +54,16 @@ class Enemy(pygame.sprite.Sprite):
         self.delta_x = 0
         self.delta_y = 0
 
+        self.CheckUnSpaw()
+
+
+    def CheckUnSpaw(self):
+        dist = pow(self.player.rect.x - self.rect.x, 2) + pow(self.player.rect.y - self.rect.y, 2)
+
+        if dist > UNSPAW_DIST * UNSPAW_DIST:
+            self.kill()
+
+
     def moveUp(self):
         self.delta_y -= self.VELOCITY
         self.y -= self.VELOCITY
@@ -146,6 +156,16 @@ class Ghost(pygame.sprite.Sprite):
 
         self.delta_x = 0
         self.delta_y = 0
+
+        self.CheckUnSpaw()
+
+
+    def CheckUnSpaw(self):
+        dist = pow(self.player.rect.x - self.rect.x, 2) + pow(self.player.rect.y - self.rect.y, 2)
+
+        if dist > UNSPAW_DIST * UNSPAW_DIST:
+            self.kill()
+    
 
     def moveUp(self):
         self.delta_y -= self.VELOCITY

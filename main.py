@@ -32,7 +32,6 @@ Ui = UI(TELA, CLOCK)
 def generateEnemies():
     if random.randint(1, 100) > SPAW_CHANCE:
         return
-    print(len(EnemyGroup))
     if len(EnemyGroup) >= MAX_MOBS:
         return
     
