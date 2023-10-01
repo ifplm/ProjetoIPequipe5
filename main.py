@@ -1,4 +1,4 @@
-import pygame, random
+import pygame, random, sys
 from pygame.locals import *
 from entities.walker import Walker
 from entities.enemy import Enemy, Ghost
@@ -56,6 +56,7 @@ def Events():
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
+            sys.exit()
 
 # Atualiza as infos dos personagens, itens e mapa
 def Update():

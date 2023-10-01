@@ -1,4 +1,4 @@
-import pygame
+import pygame, sys
 from constants import *
 
 
@@ -130,6 +130,7 @@ class UI:
         for event in self.currentEvents:
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
+                sys.exit()
 
     
     def MenuFrog(self):
