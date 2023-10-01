@@ -277,7 +277,7 @@ LABIRINT_3 = [
     ".W..WWWWWWWWWWW.",
     ".W.P2...........",
     ".W.....WWWW.....",
-    ".cWWWWW.......W.",
+    ".LWWWWW.......W.",
     ".W....MW......W.",
     ".W.W......W.WWW.",
     ".W.W..A.W.W.....",
