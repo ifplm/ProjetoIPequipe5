@@ -17,9 +17,13 @@ CALC_IMG = pygame.image.load(CALC_DIR)
 
 WALL1_IMG = WALL_SPRITE_SHEET.subsurface((TILE_SIZE*2, TILE_SIZE*4), (TILE_SIZE, TILE_SIZE))
 VASE_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*5, TILE_SIZE*7), (TILE_SIZE, TILE_SIZE))
+VASE2_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*5, TILE_SIZE*9), (TILE_SIZE, TILE_SIZE))
 BARRIL_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*5, TILE_SIZE*5), (TILE_SIZE, TILE_SIZE))
 BANCO_HORIZONTAL_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*9, TILE_SIZE), (TILE_SIZE*2, TILE_SIZE))
 ALTAR_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*11, TILE_SIZE*8), (TILE_SIZE*3, TILE_SIZE*3))
+CRUZ_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*7, TILE_SIZE*10), (TILE_SIZE, TILE_SIZE))
+LAPIDE_IMG = OBJETO_SPRITE_SHEET.subsurface((TILE_SIZE*9, TILE_SIZE*8), (TILE_SIZE, TILE_SIZE))
+
 
 GRASS_IMGS = []
 for i in range(5):
@@ -131,13 +135,18 @@ class Map:
                     Item([self.SpriteGroup, self.ItemGroup], j+delta_x, i+delta_y, CALC_IMG, 2)
                 if b == "V":
                     Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, VASE_IMG)
+                if b == "v":
+                    Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, VASE2_IMG)
                 if b == "B":
                     Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, BARRIL_IMG)
                 if b == "2":
                     Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, BANCO_HORIZONTAL_IMG)
                 if b == "P":
                     BackGround([self.SpriteGroup, self.BackGroundGroup], j+delta_x, i+delta_y, ALTAR_IMG, BLOCK_LAYER)
-
+                if b == "c":
+                    Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, CRUZ_IMG)
+                if b == "L":
+                    Block([self.SpriteGroup, self.BlockGroup], j+delta_x, i+delta_y, LAPIDE_IMG)
 
         for i in range(CHUNK_SIZE):
             for j in range(CHUNK_SIZE):
