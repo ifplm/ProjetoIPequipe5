@@ -351,7 +351,7 @@ LABIRINT_7 = [
 ALTERNATIVE_MAP_4 = [
     "................",
     ".WWWWWWWWWWWWWW.",
-    ".WAWMWAWMWAWC.W.",
+    ".WAWMWAWMWAWCCW.",
     ".W.W.W.W.W.W..W.",
     ".W.W.W.W.W.W..W.",
     ".W.W.W.W.W.W..W.",
