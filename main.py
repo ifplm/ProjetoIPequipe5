@@ -26,6 +26,24 @@ SpriteGroup = pygame.sprite.LayeredUpdates()
 EnemyGroup = pygame.sprite.LayeredUpdates()
 Ui = UI(TELA, CLOCK)
 
+#Gera aleatoriamente com essa chance de spawnar e esse limite de mobs
+def generateEnemies():
+    if random.randint(1, 100) > SPAW_CHANCE:
+        return
+    print(len(EnemyGroup))
+    if len(EnemyGroup) >= MAX_MOBS:
+        return
+    
+    x = random.randint(SPAW_MIN_DIST, SPAW_MAX_DIST) 
+    y = random.randint(SPAW_MIN_DIST, SPAW_MAX_DIST)
+
+    if random.randint(0, 1) == 0:
+        x *= -1
+
+    if random.randint(0, 1) == 0:
+        y *= -1
+
+    Enemy([SpriteGroup, EnemyGroup], BlockGroup, player, x + PLAYER_DEFAULT_X, y + PLAYER_DEFAULT_Y, SKELETON_IMG, velocity=2)
 
 # Realiza as ações do Jogo
 def Events():
@@ -57,6 +75,7 @@ def Update():
 
         Ui.GameOver()
 
+    generateEnemies()
     Mapa.checkForUpdates(player.rect.x, player.rect.y)
     SpriteGroup.update()
 
@@ -95,8 +114,6 @@ def InitGame():
     global JOGANDO
     JOGANDO = True
 
-    pygame.mixer.music.play(-1)
-    pygame.mixer.Sound.stop(SOM_MORREU)
 
 JOGANDO = False
 
@@ -108,6 +125,8 @@ while True:
         Draw()
 
     else:
+        pygame.mixer.Sound.stop(SOM_MORREU)
+        pygame.mixer.music.play(-1)
         Ui.ShowMenu()
         InitGame()
 
