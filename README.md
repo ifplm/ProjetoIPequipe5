@@ -13,8 +13,6 @@
 
 <img src="/sprites/foto_jogo2.png">
 
-<img scr="https://github.com/ifplm/ProjetoIPequipe5/assets/135993089/f5e4f1c2-5e6e-4ba9-8b50-e251e9f60a45">
-
 **Como Funciona o Jogo:**
 
 
@@ -23,6 +21,8 @@
 	Quando iniciado o jogo, o jogador estará controlando um personagem sapo o qual deve coletar três livros que representam algumas cadeiras componentes do primeiro período de Ciência da Computação: Álgebra Vetorial e Linear, Matemática Discreta e Cálculo.
 	Para atrapalhar a coleta do jogador, são gerados de forma aleatória até dois inimigos: o esqueleto, sendo ele mais rápido, e o fantasma, sendo este capaz de atravessar paredes.
 	O jogo termina apenas quando o jogador morre ou quando ele decide sair do jogo pelo Mouse.
+
+ <img scr="https://github.com/ifplm/ProjetoIPequipe5/assets/135993089/f5e4f1c2-5e6e-4ba9-8b50-e251e9f60a45">
 
 **Descrição da Arquitetura:**
 
