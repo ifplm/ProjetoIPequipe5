@@ -36,7 +36,7 @@ Ferramentas utilizadas:
 
 Divisão do trabalho:
 
-    De início, a idealização do projeto quanto ao estilo de jogo, personagens, coletáveis e design foi determinada pela equipe como um todo. No decorrer da criação do projeto, os códigos principais como movimentação, imagens e ambiente foram criados por Samuell, dando um grande passo logo no início do projeto. Igor foi responsável pelos relatórios e pelo supervisionamento do GitHub.
+    De início, a idealização do projeto quanto ao estilo de jogo, personagens, coletáveis e design foi determinada pela equipe como um todo. No decorrer da criação do projeto, os códigos principais como movimentação, imagens e ambiente foram criados por Samuell, dando um grande passo logo no início do projeto. Igor foi responsável pelos relatórios e pelo supervisionamento do GitHub, além de ter diversificado os mapas do projeto.
     Com o decorrer do tempo de entrega, Pedro Dantas seguiu com o desenvolvimento do código. A criação de diversos mapas foi feita com auxílio de todos do grupo e a instalação de música foi colocada para as diversas situações do jogo por Gabriel. Além disso, o sistema de combate e a última alteração dos mapas foram fixados por Pedro Elias.
 
 Conceitos utilizados para a criação do projeto:
