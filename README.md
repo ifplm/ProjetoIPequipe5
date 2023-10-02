@@ -9,9 +9,6 @@ INTRODUÇÃO
 	Este relatório busca explicar o processo de criação do projeto Frog Adventures e analisar o trabalho da equipe durante o processo, observando o desenvolvimento da estrutura do projeto, as dificuldades enfrentadas pela equipe e todo o processo de idealização decorrido.
 	O projeto é feito na linguagem de Python e sob o domínio de Programação Orientada a Objetos, sendo resultado do desempenho dos integrantes no que foi aprendido a respeito dos exercícios da linguagem Python.
 
-
-DESENVOLVIMENTO
-
 Como Funciona o Jogo:
 
 	A princípio, o jogo possui uma tela de menu no qual ele poderá apertar o botão “Jogar” e “Créditos”, nos quais o primeiro ele iniciará o jogo e no segundo ele visualiza os criadores do jogo.
@@ -55,7 +52,7 @@ Qual foi o maior desafio enfrentado durante o projeto e como vocês lidaram com 
     Com o tempo livre de cada membro, cada parte do projeto foi sendo desenvolvida e integrada. Apesar de não ter sido de forma simultânea, o projeto acabou sendo finalizado de maneira satisfatória para a equipe.
 
 
-CONCLUSÃO
+O que foi aprendido durante o processo de criação do projeto?
 
     Durante nosso período de aprendizado em Python, adquirimos habilidades práticas, incluindo uma compreensão da Programação Orientada a Objetos e o uso eficaz do GitHub para gerenciar nossos projetos. Além disso, exploramos a biblioteca Pygame, permitindo-nos criar jogos interativos e aprimorar nossa capacidade de aplicar a programação de forma criativa. A colaboração em equipe foi algo essencial para esse projeto, aprimorando nossa comunicação e resolução de problemas conjuntos.
     Em resumo, nossa jornada em Python nos equipou com habilidades essenciais de programação, domínio de ferramentas-chave e experiência em trabalhar colaborativamente em projetos, preparando-nos para futuros desafios no campo da tecnologia e do desenvolvimento de software.
