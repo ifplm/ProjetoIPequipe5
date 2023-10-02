@@ -37,7 +37,7 @@ class UI:
                 s.fill((0, 0, 0, 128))
                 self.TELA.blit(s, (0, HEIGHT - 4*FONTE_SZ))
 
-                self.Write("Gabriel Stanford, Igor Fragoso, Pedro Dantas,", WIDTH/2, HEIGHT - 3*FONTE_SZ, FONTE_SZ, BRANCO)
+                self.Write("Gabriel Stamford, Igor Fragoso, Pedro Dantas,", WIDTH/2, HEIGHT - 3*FONTE_SZ, FONTE_SZ, BRANCO)
                 self.Write("Pedro Elias e Samuell Costa", WIDTH/2, HEIGHT - 2*FONTE_SZ, FONTE_SZ, BRANCO)
 
             pygame.display.flip()
