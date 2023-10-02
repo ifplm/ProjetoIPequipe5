@@ -75,6 +75,17 @@
 
     Durante nosso período de aprendizado em Python, adquirimos habilidades práticas, incluindo uma compreensão da Programação Orientada a Objetos e o uso eficaz do GitHub para gerenciar nossos projetos. Além disso, exploramos a biblioteca Pygame, permitindo-nos criar jogos interativos e aprimorar nossa capacidade de aplicar a programação de forma criativa. A colaboração em equipe foi algo essencial para esse projeto, aprimorando nossa comunicação e resolução de problemas conjuntos.
     Em resumo, nossa jornada em Python nos equipou com habilidades essenciais de programação, domínio de ferramentas-chave e experiência em trabalhar colaborativamente em projetos, preparando-nos para futuros desafios no campo da tecnologia e do desenvolvimento de software.
+    
+**Como executar o sistema interativo:**
+
+	1. Instalar o Python
+ 	2. Instalar a biblioteca do pygame
+  	3. Realizar o Download do arquivo ZIP 
+   	4. Executar no prompt de comando através do python main.py
+
+	
+
+
 
 
 
