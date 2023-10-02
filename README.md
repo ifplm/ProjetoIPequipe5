@@ -13,7 +13,7 @@
 
 <img src="/sprites/foto_jogo2.png">
 
-<img scr="/https://github.com/ifplm/ProjetoIPequipe5/assets/135993089/f5e4f1c2-5e6e-4ba9-8b50-e251e9f60a45">
+<img scr="https://github.com/ifplm/ProjetoIPequipe5/assets/135993089/f5e4f1c2-5e6e-4ba9-8b50-e251e9f60a45">
 
 **Como Funciona o Jogo:**
 
