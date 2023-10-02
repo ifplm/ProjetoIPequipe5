@@ -11,7 +11,7 @@
 
 <img src="/sprites/foto_jogo.png">
 
-<img src="/sprites/foto2_jogo.png">
+<img src="/sprites/foto_jogo2.png">
 
 
 **Como Funciona o Jogo:**
