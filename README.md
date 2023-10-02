@@ -79,9 +79,10 @@
 **Como executar o sistema interativo:**
 
     1. Instalar o Python
-    2. Instalar a biblioteca do pygame
-    3. Realizar o Download do arquivo ZIP 
-    4. Executar no prompt de comando através do python main.py
+    2. Instalar a biblioteca do pygame através do comando "pip install pygame" dentro do prompt de comando do computador 
+    3. Realizar o Download do arquivo ZIP associado ao main.py 
+    4. Realizar o processo de clonagem dos arquivos a partir do comando "git clone" 
+    5. Executar no prompt de comando através do python main.py
 
 	
 
