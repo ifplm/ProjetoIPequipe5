@@ -86,6 +86,7 @@ def Draw():
 def InitGame():
 
     SpriteGroup.empty()
+    EnemyGroup.empty()
 
     global Mapa
     Mapa = Map(SpriteGroup)
