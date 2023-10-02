@@ -220,11 +220,11 @@ TEMPLE_MAP = [
 ]
 ALTERNATIVE_MAP_3 = [
     "................",
-    ".B...WWWWWWWWWW.",
+    ".BWWWWWWWWWWWWW.",
     ".W.....C...ACAW.",
     ".W.WW...W..MWMW.",
     ".W....WWWWWWWWW.",
-    ".WWW......P2....",
+    ".WWWB.....P2....",
     ".W............W.",
     ".W.WWW.......AW.",
     ".W...W.WWW...WW.",
@@ -243,7 +243,7 @@ LABIRINT_1 = [
     ".W.......WWWW.W.",
     ".WWWWWWW....W.W.",
     ".W..........W.W.",
-    ".W.WWWWWWWWWW.W.",
+    ".W.WWWWWWWW.W.W.",
     ".....CWv....W.W.",
     ".W.WWWW..WWWW...",
     ".W.WAC..M.MCW.W.",
