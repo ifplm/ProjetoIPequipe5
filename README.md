@@ -38,7 +38,20 @@ Divisão do trabalho:
 
 Conceitos utilizados para a criação do projeto:
 
-    Estruturas Condicionais, Estruturas de Repetição, Tuplas;Dicionários, Listas;Funções e Programação Orientada a Objetos (POO).
+    Estruturas Condicionais: foram utilizadas por todo o projeto para tomar decisões com base nas informações do game e alternar entre comportamentos dadas as interações do jogador.
+
+    Estruturas de Repetição: foram de grande importância para o laço de repetição principal do jogo, onde são realizadas todas as ações durante a execução da aplicação.
+
+    Tuplas: são utilizadas para guardar informações como taxas de cores RGB, coordenadas e tamanhos de objetos no mapa e para recorte de sprites das imagens.
+
+    Dicionários: Utilizamos para manter salvos os modelos de cada “chunk”  no mapa, que por ser infinito e ter geração pseudo-aleatória não poderia ser armazenado em uma lista.
+
+    Listas: os modelos de cada “chunk” do mapa, ou seja, de cada parte do mapa, para serem interpretados pelo gerador, foram feitos utilizando-se listas e strings.
+
+    Funções: foram utilizadas para separar funcionalidades de forma a deixar o código mais legível e organizado, separando blocos de código com mesma finalidade em funções definidas.
+
+    Programação Orientada a Objetos (POO): de grande importância no projeto, classes e objetos foram utilizados tanto de forma integrada ao Pygame, estendendo classes dessa biblioteca, como de forma autônoma criando classes próprias para gerenciamento, unificação e centralização de tarefas. Vale mencionar a grande importância da orientação a objetos para o controle in game do player, dos inimigos e do gerenciamento do mapa, junto com os blocos, itens e background.
+
 
 
 Qual foi o maior erro cometido durante o projeto e como foi resolvido?
